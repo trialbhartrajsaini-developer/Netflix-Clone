@@ -42,6 +42,57 @@ rightbutton.addEventListener("click",(e)=>{
   })
 })
 
+let languageSelects=document.querySelectorAll(".language-select");
+
+function closeLanguageMenus(){
+  languageSelects.forEach((languageSelect)=>{
+    languageSelect.querySelector(".language-options").hidden=true;
+    languageSelect.querySelector(".language-trigger").setAttribute("aria-expanded","false");
+  });
+}
+
+languageSelects.forEach((languageSelect)=>{
+  let trigger=languageSelect.querySelector(".language-trigger");
+  let options=languageSelect.querySelector(".language-options");
+
+  trigger.addEventListener("click",()=>{
+    let shouldOpen=options.hidden;
+    closeLanguageMenus();
+    options.hidden=!shouldOpen;
+    trigger.setAttribute("aria-expanded",String(shouldOpen));
+  });
+
+  options.addEventListener("click",(event)=>{
+    let option=event.target.closest(".language-option");
+    if(!option){
+      return;
+    }
+
+    let selectedLanguage=option.innerText;
+    languageSelects.forEach((select)=>{
+      select.querySelector(".language-current").innerText=selectedLanguage;
+      select.querySelectorAll(".language-option").forEach((languageOption)=>{
+        languageOption.setAttribute("aria-selected",String(languageOption.innerText===selectedLanguage));
+      });
+    });
+
+    closeLanguageMenus();
+    trigger.focus();
+  });
+});
+
+document.addEventListener("click",(event)=>{
+  if(!event.target.closest(".language-select")){
+    closeLanguageMenus();
+  }
+});
+
+document.addEventListener("keydown",(event)=>{
+  if(event.key==="Escape"){
+    closeLanguageMenus();
+  }
+});
+
 leftbutton.addEventListener("click",(e)=>{
   image.forEach((imgval)=>{
     imgval.style.visibility="visible"

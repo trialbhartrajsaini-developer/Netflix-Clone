@@ -14,13 +14,18 @@
             <header class="header">
                <div><img src="netflix_logo.svg" alt="Netflix logo"></div> 
                <div class="headeritem">
+                <div class="language-select">
                 <i class="fa-solid fa-language"></i>
-                <select name="lang" id="select">
-                    <option value="English">English</option>
-                    <option value="Hindi">Hindi</option>
-                </select>
+                <button class="language-trigger" type="button" aria-label="Choose language" aria-haspopup="listbox" aria-controls="language-options-top" aria-expanded="false">
+                    <span class="language-current">English</span>
+                </button>
+                <i class="fa-solid fa-caret-down language-caret"></i>
+                <div class="language-options" id="language-options-top" role="listbox" aria-label="Language" hidden>
+                    <button class="language-option" type="button" role="option" aria-selected="true">English</button>
+                    <button class="language-option" type="button" role="option" aria-selected="false">Hindi</button>
+                </div>
+                </div>
                 <a href="https://www.netflix.com/" class="a1">Sign In</a>
-                <div class="i"><i class="fa-solid fa-caret-down"></i></div>
                </div>
             </header>
         </div>
@@ -37,7 +42,8 @@
     <div class="containor2">   
      <div class="mainbox">
         <h2>Trending Now</h2>
-        <button style="height: 100px;" class="leftbutton"> <i class="fa-solid fa-square-caret-left"></i></button>
+        <div class="trending-row">
+        <button class="leftbutton"> <i class="fa-solid fa-square-caret-left"></i></button>
         <div class="moviebox">
         <img src="the_adventure_image4.jpg"id="movie">
         <img src="web_image1.jpg" class="movie1" >
@@ -68,7 +74,8 @@
             <div class="one">5</div>
              <div class="two">10</div>
         </div>
-        <button style="height: 100px;" class="rightbutton"><i class="fa-solid fa-square-caret-right"></i></button>
+        <button class="rightbutton"><i class="fa-solid fa-square-caret-right"></i></button>
+        </div>
           <h2 class="h2">More reasons to join</h2>
           <div class="textcontainor">
           <div class="textbox">
@@ -76,8 +83,10 @@
                 Enjoy on your TV
             </h3>
              <p>Watch on smart TVs, PlayStation, Xbox,<br> Chromecast, Apple TV,<br> Blu-ray players and more.</p>
-             <img src="tv1.svg" alt="tv svg image" class="img1">
-             <video src="border2tailor.mp4" class="video"  autoplay muted></video>
+             <div class="tv-display">
+                <video src="border2tailor.webm" class="video" autoplay muted loop playsinline></video>
+                <img src="tv1.svg" alt="TV displaying a show" class="img1">
+             </div>
         </div>
         <div class="textbox">
             <h3>Download your shows to watch offline</h3>
@@ -183,12 +192,17 @@
                 </div>
             </div>
             <div class="bottomfooter">
+                <div class="language-select">
                  <i class="fa-solid fa-language"></i>
-                <select name="lang" id="select">
-                    <option value="English">English</option>
-                    <option value="Hindi">Hindi</option>
-                </select>
-               <div id="i1"><i class="fa-solid fa-caret-down"></i></div>
+                <button class="language-trigger" type="button" aria-label="Choose language" aria-haspopup="listbox" aria-controls="language-options-footer" aria-expanded="false">
+                    <span class="language-current">English</span>
+                </button>
+                <i class="fa-solid fa-caret-down language-caret"></i>
+                <div class="language-options" id="language-options-footer" role="listbox" aria-label="Language" hidden>
+                    <button class="language-option" type="button" role="option" aria-selected="true">English</button>
+                    <button class="language-option" type="button" role="option" aria-selected="false">Hindi</button>
+                </div>
+                </div>
                <div class="footerspan"><p>Netflix India</p>
                <span>This page is protected by Google reCAPTCHA to ensure you're not a bot.</span></div> 
             </div>
@@ -198,4 +212,3 @@
     <script src="first.js"></script>
 </body>
 </html>
-
